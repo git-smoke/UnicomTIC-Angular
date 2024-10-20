@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RCc/UB7qiUs=",
+  "dgSpecHash": "pWZoZMoizkk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\UT01235\\Documents\\UNICOM\\PROJECT-GOING\\2024_10_19 (ACTIVITY-43)\\Back_End\\ToDoList\\ToDoList.csproj",
+  "projectFilePath": "C:\\Users\\UT01235\\Documents\\UNICOM\\PROJECT-GOING\\Angular_WebApp\\Back_End\\ToDoList\\ToDoList.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\UT01235\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\UT01235\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

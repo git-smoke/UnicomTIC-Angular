@@ -11,5 +11,6 @@ namespace ToDoList.AppDbContext
         }
 
         public DbSet<TaskItems> Tasks { get; set; }
+        public DbSet<Users> Users { get; set; }
     }
 }

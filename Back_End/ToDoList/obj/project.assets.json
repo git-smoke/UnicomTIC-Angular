@@ -8137,11 +8137,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\UT01235\\Documents\\UNICOM\\PROJECT-GOING\\2024_10_19 (ACTIVITY-43)\\Back_End\\ToDoList\\ToDoList.csproj",
+      "projectUniqueName": "C:\\Users\\UT01235\\Documents\\UNICOM\\PROJECT-GOING\\Angular_WebApp\\Back_End\\ToDoList\\ToDoList.csproj",
       "projectName": "ToDoList",
-      "projectPath": "C:\\Users\\UT01235\\Documents\\UNICOM\\PROJECT-GOING\\2024_10_19 (ACTIVITY-43)\\Back_End\\ToDoList\\ToDoList.csproj",
+      "projectPath": "C:\\Users\\UT01235\\Documents\\UNICOM\\PROJECT-GOING\\Angular_WebApp\\Back_End\\ToDoList\\ToDoList.csproj",
       "packagesPath": "C:\\Users\\UT01235\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\UT01235\\Documents\\UNICOM\\PROJECT-GOING\\2024_10_19 (ACTIVITY-43)\\Back_End\\ToDoList\\obj\\",
+      "outputPath": "C:\\Users\\UT01235\\Documents\\UNICOM\\PROJECT-GOING\\Angular_WebApp\\Back_End\\ToDoList\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\UT01235\\AppData\\Roaming\\NuGet\\NuGet.Config",
