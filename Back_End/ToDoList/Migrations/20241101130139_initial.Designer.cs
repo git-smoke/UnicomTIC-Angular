@@ -12,7 +12,7 @@ using ToDoList.AppDbContext;
 namespace ToDoList.Migrations
 {
     [DbContext(typeof(TaskDBContext))]
-    [Migration("20241020092438_initial")]
+    [Migration("20241101130139_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -25,6 +25,36 @@ namespace ToDoList.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ToDoList.Models.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AddressLine1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Address");
+                });
+
             modelBuilder.Entity("ToDoList.Models.TaskItems", b =>
                 {
                     b.Property<int>("Id")
@@ -32,6 +62,9 @@ namespace ToDoList.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AssigneeId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -50,6 +83,8 @@ namespace ToDoList.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AssigneeId");
+
                     b.ToTable("Tasks");
                 });
 
@@ -60,10 +95,6 @@ namespace ToDoList.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -77,9 +108,42 @@ namespace ToDoList.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("ToDoList.Models.Address", b =>
+                {
+                    b.HasOne("ToDoList.Models.Users", "User")
+                        .WithOne("Address")
+                        .HasForeignKey("ToDoList.Models.Address", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ToDoList.Models.TaskItems", b =>
+                {
+                    b.HasOne("ToDoList.Models.Users", "Assignee")
+                        .WithMany("TaskItems")
+                        .HasForeignKey("AssigneeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Assignee");
+                });
+
+            modelBuilder.Entity("ToDoList.Models.Users", b =>
+                {
+                    b.Navigation("Address");
+
+                    b.Navigation("TaskItems");
                 });
 #pragma warning restore 612, 618
         }

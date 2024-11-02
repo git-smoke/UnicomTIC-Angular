@@ -25,14 +25,14 @@ namespace ToDoList.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users.Include(a => a.Address).Include(i => i.TaskItems).ToListAsync();
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Users>> GetUsers(int id)
         {
-            var users = await _context.Users.FindAsync(id);
+            var users = await _context.Users.Include(a => a.Address).Include(i => i.TaskItems).FirstOrDefaultAsync(u => u.Id == id);
 
             if (users == null)
             {
@@ -53,6 +53,7 @@ namespace ToDoList.Controllers
             }
 
             _context.Entry(users).State = EntityState.Modified;
+            _context.Entry(users.Address).State = EntityState.Modified;
 
             try
             {

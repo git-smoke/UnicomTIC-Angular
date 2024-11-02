@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoList.AppDbContext;
 
@@ -11,9 +12,11 @@ using ToDoList.AppDbContext;
 namespace ToDoList.Migrations
 {
     [DbContext(typeof(TaskDBContext))]
-    partial class TaskDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241102054320_checkLists")]
+    partial class checkLists
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

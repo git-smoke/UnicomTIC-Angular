@@ -14,6 +14,8 @@ namespace ToDoList.Models
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
-        public string Address { get; set; }
+        public string Phone { get; set; }
+        public Address? Address { get; set; }
+        public ICollection<TaskItems>? TaskItems { get; set; }
     }
 }

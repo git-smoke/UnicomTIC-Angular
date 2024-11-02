@@ -14,6 +14,11 @@ namespace ToDoList.Models
         public DateTime DueDate { get; set; }
         [Required]
         public string Priority { get; set; }
+        public int? AssigneeId { get; set; }
+        public Users? Assignee { get; set; }
+        public ICollection<CheckLists>? CheckLists { get; set; }
+     
+
         
     }
 }
